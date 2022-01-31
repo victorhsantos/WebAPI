@@ -93,7 +93,7 @@ namespace Alura.WebAPI.Api
                 });
                 options.DescribeAllEnumsAsStrings();
                 options.DescribeStringEnumsInCamelCase();
-                options.OperationFilter<AuthResponsesOperationFilter>();
+                options.OperationFilter<AuthResponsesOperationFilter>();                
                 options.DocumentFilter<TagDescriptionsDocumentFilter>();
             });
 

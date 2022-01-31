@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Alura.ListaLeitura.Modelos;
 using Alura.ListaLeitura.Persistencia;
 using Alura.WebAPI.Api.Modelos;
@@ -23,6 +24,12 @@ namespace Alura.ListaLeitura.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(
+            Summary = "Retorna lista de livros.",
+            Tags = new[] { "Listas" },
+            Produces = new[] { "application/json", "application/xml" }
+        )]
+        [ProducesResponseType(statusCode: 200, Type = typeof(List<LivroApi>))]
         public IActionResult ListaDeLivros()
         {
             var lista = _repo.All.Select(l => l.ToApi()).ToList();
@@ -49,6 +56,10 @@ namespace Alura.ListaLeitura.Api.Controllers
         }
 
         [HttpGet("{id}/capa")]
+        [SwaggerOperation(
+            Summary = "Retorna capa do livro.", 
+            Produces = new[] { "image/png" }
+        )]
         public IActionResult ImagemCapa(int id)
         {
             byte[] img = _repo.All
