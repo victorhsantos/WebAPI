@@ -6,6 +6,10 @@ namespace Alura.WebAPI.Api.Filtros
 {
     public class ErrorResponseFilter : IExceptionFilter
     {
+        /// <summary>
+        /// Encapsula objeto do ErrorResponse quando ocorrer um erro nas validacoes do AspNet Core.
+        /// </summary>
+        /// <param name="context">contexto da requisicao</param>
         public void OnException(ExceptionContext context)
         {
             var erroResponse = ErrorResponse.From(context.Exception);

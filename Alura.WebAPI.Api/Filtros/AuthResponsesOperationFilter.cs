@@ -8,9 +8,7 @@ namespace Alura.WebAPI.Api.Filtros
     {
         public void Apply(Swashbuckle.AspNetCore.Swagger.Operation operation, OperationFilterContext context)
         {
-            operation.Responses.Add(
-            "401",
-            new Response { Description = "Unauthorized" });
+            operation.Responses.Add("401", new Response { Description = "Unauthorized" });
         }
     }
 }
